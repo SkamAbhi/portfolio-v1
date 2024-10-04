@@ -16,10 +16,10 @@ export default function OrbitingCircles({
   reverse,
   duration = 20,
   delay = 10,
-  radius = 50,
+  radius = 20,
   path = true,
 }: OrbitingCirclesProps) {
-  return (  
+  return (
     <>
       {path && (
         <svg
@@ -33,9 +33,10 @@ export default function OrbitingCircles({
             cy="50%"
             r={radius}
             fill="none"
+            strokeDasharray="5 5"
           />
         </svg>
-      )} 
+      )}
 
       <div
         style={
@@ -46,9 +47,9 @@ export default function OrbitingCircles({
           } as React.CSSProperties
         }
         className={cn(
-          "absolute flex size-full transform-gpu animate-orbit items-center justify-center rounded-full border bg-black/10 [animation-delay:calc(var(--delay)*1000ms)] dark:bg-white/10",
+          "absolute flex size-[100%] transform-gpu animate-orbit items-center justify-center rounded-full border bg-black/10 [animation-delay:calc(var(--delay)*1000ms)] dark:bg-white/10",
           { "[animation-direction:reverse]": reverse },
-          className,
+          className
         )}
       >
         {children}

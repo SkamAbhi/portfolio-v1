@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { MenuIcon, ScrollText } from "lucide-react";
 
 // Path component
 const Path = (props) => (
@@ -15,40 +16,21 @@ const Path = (props) => (
 
 // MenuToggle component
 export const MenuToggle = ({ toggle }) => (
-  <div className="fixed top-0 left-0 right-0 flex justify-between p-5 bg-transparent z-50">
+  <div className="fixed top-0 left-0 right-0 flex justify-between p-5 px-10 bg-transparent z-50">
     <div>
       <img src="/logo.svg" height={48} width={48} alt="logo" />
     </div>
-    <div>
+
+    <div className="flex justify-center items-center ">
+      <div>
+        <button className="flex items-center border border-violet-700 p-3 text-white">
+        <ScrollText color="gray" height={24} width={24}  />
+
+          View Resume
+           </button>
+      </div>
       <button onClick={toggle}>
-        <svg width="23" height="23" viewBox="0 0 23 23">
-          <Path
-            stroke="white"
-            fill="white"
-            variants={{
-              closed: { d: "M 2 2.5 L 20 2.5" },
-              open: { d: "M 3 16.5 L 17 2.5" },
-            }}
-          />
-          <Path
-            stroke="white"
-            fill="white"
-            d="M 2 9.423 L 20 9.423"
-            variants={{
-              closed: { opacity: 1 },
-              open: { opacity: 0 },
-            }}
-            transition={{ duration: 0.1 }}
-          />
-          <Path
-            stroke="white"
-            fill="white"
-            variants={{
-              closed: { d: "M 2 16.346 L 20 16.346" },
-              open: { d: "M 3 2.5 L 17 16.346" },
-            }}
-          />
-        </svg>
+        <MenuIcon color="gray" height={40} width={40}  />
       </button>
     </div>
   </div>
