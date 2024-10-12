@@ -15,7 +15,7 @@ export function OrbitingCirclesDemo() {
         <Icons.whatsapp />
       </OrbitingCircles>
       <OrbitingCircles
-        className="size-[20px] border-none bg-transparent"
+        className="size-[20px] border-none bg-white"
         duration={20}
         delay={10}
         radius={60}
@@ -25,7 +25,7 @@ export function OrbitingCirclesDemo() {
 
       {/* Outer Circles (reverse) */}
       <OrbitingCircles
-        className="size-[30px] border-none bg-transparent"
+        className="size-[30px] border-none bg-white"
         radius={120}
         duration={20}
         reverse
@@ -85,37 +85,10 @@ const Icons = {
     </svg>
   ),
   googleDrive: () => (
-    <svg
-      width="100"
-      height="100"
-      viewBox="0 0 87.3 78"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z"
-        fill="#0066da"
-      />
-      <path
-        d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z"
-        fill="#00ac47"
-      />
-      <path
-        d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z"
-        fill="#ea4335"
-      />
-      <path
-        d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z"
-        fill="#00832d"
-      />
-      <path
-        d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z"
-        fill="#2684fc"
-      />
-      <path
-        d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z"
-        fill="#ffba00"
-      />
-    </svg>
+    <svg width="800px" height="800px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+   <circle cx="512" cy="512" r="512" />
+   <path d="M648.86 449.44c-32.34-142.73-108.77-189.66-117-207.59-9-12.65-18.12-35.15-18.12-35.15-.15-.38-.39-1.05-.67-1.7-.93 12.65-1.41 17.53-13.37 30.29-18.52 14.48-113.54 94.21-121.27 256.37-7.21 151.24 109.25 241.36 125 252.85l1.79 1.27v-.11c.1.76 5 36 8.44 73.34H526a726.68 726.68 0 0 1 13-78.53l1-.65a204.48 204.48 0 0 0 20.11-16.45l.72-.65c33.48-30.93 93.67-102.47 93.08-216.53a347.07 347.07 0 0 0-5.05-56.76zM512.35 659.12s0-212.12 7-212.08c5.46 0 12.53 273.61 12.53 273.61-9.72-1.17-19.53-45.03-19.53-61.53z" />
+</svg>
   ),
   whatsapp: () => 
   (

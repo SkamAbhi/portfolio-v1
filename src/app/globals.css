@@ -67,3 +67,44 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg); /* Slightly tilt to add a waving effect */
+  }
+  100% {
+    transform: rotate(0deg); /* Return to the original position */
+  }
+}
+
+.animate-rotate {
+  animation: rotate 2s ease-in-out infinite; /* Changed to 1s for a quicker wave */
+}
+
+.fade-border {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+}
+
+.fade-border::before,
+.fade-border::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, gray 50%, transparent);
+}
+
+.fade-border::before {
+  top: 0; /* Top fading border */
+}
+
+.fade-border::after {
+  bottom: 0; /* Bottom fading border */
+}

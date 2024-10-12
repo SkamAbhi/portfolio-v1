@@ -47,7 +47,12 @@ function AboutMe() {
     >
         {" "}
         <h2 className="text-white">
-          <span className="border-b">About Me</span>
+          <motion.span
+    className="border-b  border-gray-400 text-xl font-bold mb-4"
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, ease: "easeOut" }}
+  >About Me</motion.span>
         </h2>
       <motion.div
         variants={hideAndShowVariant}
