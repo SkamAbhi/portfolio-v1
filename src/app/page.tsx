@@ -10,6 +10,7 @@ import { OrbitingCirclesDemo } from "@/components/CircleSkills";
 import { RevealingTextContainer, RevealingTextItem } from "./ui/RevealingText";
 import AboutMe from "./AboutMe";
 import Experience from "./Experience";
+import Projects from "./Projects";
 
 export default function Home() {
   const { x, y } = useMousePosition();
@@ -117,9 +118,7 @@ export default function Home() {
         </h2>
       </div>
       <div id="projects" className=" px-30 pb-80">
-        <h2 className="text-white">
-          <span className="border-b">Projects</span>
-        </h2>
+        <Projects/>
       </div>
       <div id="skills" className=" px-30 pb-80">
         <h2 className="text-white">
