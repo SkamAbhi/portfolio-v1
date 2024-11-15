@@ -14,8 +14,8 @@ interface RevealingTextContainerProps
 export function RevealingTextContainer({
   className,
   scrollYProgress,
-  widthStart = 0.20,
-  widthEnd = 0.60,
+  widthStart = 0.2,
+  widthEnd = 0.6,
   children,
   ...props
 }: RevealingTextContainerProps) {
@@ -23,7 +23,10 @@ export function RevealingTextContainer({
     (1 - widthEnd) / (children.length === 1 ? 1 : children.length - 1);
 
   return (
-    <div {...props} className={cn("flex flex-col  text-white text", className)}>
+    <div
+      {...props}
+      className={cn("flex flex-col w-[58rem]  text-white text", className)}
+    >
       {children.map((child, index) => {
         return React.cloneElement(child, {
           scrollYProgress,
@@ -64,7 +67,9 @@ export function RevealingTextItem({
 
   return (
     <div {...props} className="relative">
-      <p className="text-white text-[2.5rem] leading-normal font-bold">{children}</p>
+      <p className="text-white text-[2.5rem] leading-normal font-bold">
+        {children}
+      </p>
       <motion.div
         style={{ width }}
         className={cn(

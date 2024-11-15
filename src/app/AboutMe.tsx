@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
-import { RevealingTextContainer, RevealingTextItem } from "./ui/RevealingText";
 import { motion, useScroll, useTransform } from "framer-motion";
+
+// Assuming you have these components in your project
+import { RevealingTextContainer, RevealingTextItem } from "./ui/RevealingText";
 
 function AboutMe() {
   const hideAndShowVariant = {
@@ -17,15 +19,17 @@ function AboutMe() {
   };
 
   const sectionRef = useRef<HTMLElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
-  } as any);
+  });
 
   const { scrollYProgress: opacityScroller } = useScroll({
     target: sectionRef,
     offset: ["end end", "end start"],
-  } as any);
+  });
+
   const sectionOpacity = useTransform(opacityScroller, [0.4, 0.8], [1, 0]);
 
   const text = [
@@ -33,44 +37,64 @@ function AboutMe() {
     "turning ideas into Reality.",
     "Bridging design and development,",
     "I craft seamless, responsive UIs,",
-    "and write efficient, scalable ",
+    "and write efficient, scalable",
     "backend logic.",
   ];
-  
-    
-  return (
-    <motion.section
-      style={{ opacity: sectionOpacity }}
-      id="about"
-      ref={sectionRef}
-      className="relative  select-none flex flex-col"
-    >
-        {" "}
-        <h2 className="text-white">
-          <motion.span
-    className="border-b  border-gray-400 text-xl font-bold mb-4"
-    initial={{ opacity: 0, y: -20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, ease: "easeOut" }}
-  >About Me</motion.span>
-        </h2>
-      <motion.div
-        variants={hideAndShowVariant}
-        initial="hide"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="mt-20 px-8 hidden sm:block"
-      >
 
-        <RevealingTextContainer scrollYProgress={scrollYProgress}>
-          {text.map((text, i) => (
-            <RevealingTextItem index={i} key={i}>
-                {text}
-            </RevealingTextItem>
-          ))}
-        </RevealingTextContainer>
+  return (
+    <section className="bg-black py-20">
+      <motion.div
+        style={{ opacity: sectionOpacity }}
+        ref={sectionRef}
+        className="max-w-7xl mx-auto px-6"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-20"
+        >
+          <div className="flex flex-col gap-2">
+            <motion.h2
+              className="text-4xl font-bold text-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              About Me
+            </motion.h2>
+            <motion.p
+              className="text-zinc-400 text-lg max-w-2xl mt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              A passionate developer crafting digital experiences
+            </motion.p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          variants={hideAndShowVariant}
+          initial="hide"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="mt-8 space-y-6"
+        >
+          <RevealingTextContainer scrollYProgress={scrollYProgress}>
+            {text.map((line, i) => (
+              <RevealingTextItem
+                key={i}
+                index={i}
+                className="text-xl text-zinc-300 leading-relaxed"
+              >
+                {line}
+              </RevealingTextItem>
+            ))}
+          </RevealingTextContainer>
+        </motion.div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 }
 

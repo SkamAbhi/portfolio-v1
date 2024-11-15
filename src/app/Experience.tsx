@@ -20,9 +20,9 @@ const experienceData = [
 
 export default function Experience() {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-6">
       <motion.span
-        className="border-b  border-gray-400 text-xl font-bold mb-4"
+        className="border-b  border-gray-400 text-white text-3xl font-bold  "
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -30,15 +30,15 @@ export default function Experience() {
         Experience
       </motion.span>
 
-      <div className="flex flex-col items-center my-8">
+      <div className="flex flex-col items-center my-8 mt-20">
         <motion.div
-          className="flex flex-col justify-center items-center  max-w-5xl w-full"
+          className="flex flex-col justify-center items-center w-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
         >
           <motion.div
-            className="text-white fade-border mb-12 w-full flex justify-center p-10"
+            className="text-white fade-border mb-8 w-full flex justify-center p-10"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
