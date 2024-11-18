@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-
-// Assuming you have these components in your project
 import { RevealingTextContainer, RevealingTextItem } from "./ui/RevealingText";
 
 function AboutMe() {
@@ -41,22 +39,36 @@ function AboutMe() {
     "backend logic.",
   ];
 
+  const mobileConfig = {
+    widthStart: 0.1,
+    widthEnd: 0.4,
+    duration: 0.2,
+  };
+
+  const desktopConfig = {
+    widthStart: 0.2,
+    widthEnd: 0.6,
+    duration: 0.3,
+  };
+
+  const config = window.innerWidth < 768 ? mobileConfig : desktopConfig;
+
   return (
-    <section className="bg-black py-20">
+    <section className="bg-black py-10 md:py-20">
       <motion.div
         style={{ opacity: sectionOpacity }}
         ref={sectionRef}
-        className="max-w-7xl mx-auto px-6"
+        className="max-w-7xl mx-auto px-4 md:px-6"
       >
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-20"
+          className="mb-10 md:mb-20"
         >
           <div className="flex flex-col gap-2">
             <motion.h2
-              className="text-4xl font-bold text-white"
+              className="text-3xl md:text-4xl font-bold text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -64,7 +76,7 @@ function AboutMe() {
               About Me
             </motion.h2>
             <motion.p
-              className="text-zinc-400 text-lg max-w-2xl mt-4"
+              className="text-zinc-400 text-base md:text-lg max-w-2xl mt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -79,14 +91,18 @@ function AboutMe() {
           initial="hide"
           whileInView="show"
           viewport={{ once: true }}
-          className="mt-8 space-y-6"
+          className="mt-8 space-y-4 md:space-y-6"
         >
-          <RevealingTextContainer scrollYProgress={scrollYProgress}>
+          <RevealingTextContainer
+            scrollYProgress={scrollYProgress}
+            widthStart={config.widthStart}
+            widthEnd={config.widthEnd}
+          >
             {text.map((line, i) => (
               <RevealingTextItem
                 key={i}
                 index={i}
-                className="text-xl text-zinc-300 leading-relaxed"
+                className="text-lg md:text-xl text-zinc-300 leading-relaxed"
               >
                 {line}
               </RevealingTextItem>

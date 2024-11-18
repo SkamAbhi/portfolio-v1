@@ -21,7 +21,7 @@ export const ExperienceCard: React.FC<ExperienceProps> = ({
   return (
     <motion.div
       ref={elementRef}
-      className="flex justify-between  fade-border items-center w-full mb-10 font-medium"
+      className="flex flex-col md:flex-row justify-between fade-border items-start md:items-center w-full mb-6 md:mb-10 font-medium"
       initial={{ opacity: 0, y: 20 }}
       animate={{
         opacity: isInView ? 1 : 0.5,
@@ -30,32 +30,34 @@ export const ExperienceCard: React.FC<ExperienceProps> = ({
       transition={{ duration: 2, ease: "easeOut" }}
     >
       <motion.div
-        className="text-lg text-gray-300 flex flex-col p-10 font-medium"
+        className="text-base md:text-lg text-gray-300 flex flex-col p-4 md:p-10 font-medium w-full"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         <div className="flex flex-col">
-          {position}
-          <span>{company}</span>
+          <div className="text-xl md:text-2xl font-bold">{position}</div>
+          <span className="text-xl md:text-2xl font-bold mt-2">{company}</span>
         </div>
-        <div className="flex flex-col text-sm mt-3">
+        <div className="flex flex-col text-sm md:text-base mt-3">
           <span>{duration}</span>
-          <span>{location}</span>
+          <span className="text-sm md:text-base text-gray-400">{location}</span>
         </div>
       </motion.div>
+
+      {/* Logo Section */}
       <motion.div
-        className="text-lg text-gray-300 flex items-start flex-col p-10 font-medium"
+        className="text-lg text-gray-300 flex items-start md:items-center p-4 md:p-10 font-medium"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         <img
           src={companyLogo}
-          width={60}
-          height={60}
-          className="bg-gray-50 p-1"
-          alt="company logo"
+          width={40}
+          height={40}
+          className="bg-gray-50 p-1 md:w-[60px] md:h-[60px]"
+          alt={`${company} logo`}
         />
       </motion.div>
     </motion.div>
