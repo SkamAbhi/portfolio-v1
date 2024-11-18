@@ -19,6 +19,11 @@ const config = {
     },
     extend: {
       colors: {
+        fontFamily: {
+         sans: 'Roboto, system-ui, sans-serif',
+        display: 'Cabinet Grotesk, system-ui, sans-serif',
+        mono: 'JetBrains Mono, monospace',
+      },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

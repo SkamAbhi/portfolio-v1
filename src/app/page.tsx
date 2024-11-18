@@ -2,19 +2,17 @@
 
 import React, { useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { Navigation } from "./Components/Navbar";
 import "./globals.css";
 import useMousePosition from "../utils/useMosusePostion";
 import AboutMe from "./AboutMe";
 import Experience from "./Experience";
 import Projects from "./Projects";
-import { MenuToggle } from "./Components/Navbar/menu-toggle";
 import Skills from "./Skill";
 import Contact from "./Contact";
-import { OrbitingCirclesDemo } from "@/components/CircleSkills";
-import { useAnimate } from "framer-motion";
-import { useEffect } from "react";
+
 import Hero from "./Hero";
+import Footer from "./Footer";
+import Header from "./Components/Navbar";
 
 export default function Home() {
   const { x, y } = useMousePosition();
@@ -31,18 +29,15 @@ export default function Home() {
   return (
     <div className="bg-black min-h-screen">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-zinc-500 origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-zinc-500 origin-left z-[999]"
         style={{ scaleX }}
       />
-
-      <MenuToggle toggle={() => setIsOpen(!isOpen)} />
-      <Navigation isOpen={isOpen} />
-
-      <section id="hero">
+      <div className="fixed top-0 left-0 right-0  z-50  ">
+        <Header />
+      </div>
+      <section id="home">
         <Hero />
       </section>
-
-      {/* Content Sections */}
       <div className="max-w-7xl mx-auto px-6 space-y-32">
         <section id="about">
           <AboutMe />
@@ -62,6 +57,9 @@ export default function Home() {
 
         <section id="contact">
           <Contact />
+        </section>
+        <section>
+          <Footer />
         </section>
       </div>
     </div>

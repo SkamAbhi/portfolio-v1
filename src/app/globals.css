@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --font-sans: "Inter", "Inter Placeholder", sans-serif;
+  --font-display: "Cabinet Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
 @layer base {
   :root {
     --background: 0 0% 0%;
@@ -73,15 +81,15 @@
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(20deg); /* Slightly tilt to add a waving effect */
+    transform: rotate(20deg);
   }
   100% {
-    transform: rotate(0deg); /* Return to the original position */
+    transform: rotate(0deg);
   }
 }
 
 .animate-rotate {
-  animation: rotate 2s ease-in-out infinite; /* Changed to 1s for a quicker wave */
+  animation: rotate 2s ease-in-out infinite;
 }
 
 .fade-border {
@@ -102,11 +110,11 @@
 }
 
 .fade-border::before {
-  top: 0; /* Top fading border */
+  top: 0;
 }
 
 .fade-border::after {
-  bottom: 0; /* Bottom fading border */
+  bottom: 0;
 }
 
 .project-card-hover {
@@ -120,4 +128,18 @@
 
 .transition-all {
   transition: all 0.3s ease-in-out;
+}
+
+.blinking {
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }

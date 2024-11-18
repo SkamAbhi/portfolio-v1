@@ -25,7 +25,10 @@ export function RevealingTextContainer({
   return (
     <div
       {...props}
-      className={cn("flex flex-col w-[58rem]  text-white text", className)}
+      className={cn(
+        "flex flex-col w-full md:w-[58rem] text-white text",
+        className
+      )}
     >
       {children.map((child, index) => {
         return React.cloneElement(child, {
@@ -67,7 +70,7 @@ export function RevealingTextItem({
 
   return (
     <div {...props} className="relative">
-      <p className="text-white text-[2.5rem] leading-normal font-bold">
+      <p className="text-white text-xl md:text-[2.5rem] leading-normal font-bold">
         {children}
       </p>
       <motion.div

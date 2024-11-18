@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import CustomCursor from "./Components/CustomCursor";
+import CustomCursor from "./Components/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SKAM Portfolio",
+  title: "Abhishek Singh",
   description: "",
 };
 
@@ -18,8 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-    {/* <CustomCursor/> */}
-{children}</body>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }
