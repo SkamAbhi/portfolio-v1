@@ -44,23 +44,13 @@ export const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
-      <div className="w-full flex justify-center items-center bg-black">
+      <div className="w-full md:hidden flex justify-center items-center bg-black">
         <div className="relative w-full max-w-[85rem] flex justify-between items-center p-4 sm:p-5 px-4 sm:px-10">
           <div className="text-xl sm:text-2xl text-white font-extrabold">
             A.S.
           </div>
 
           <div className="flex items-center gap-4 sm:gap-6">
-            <div className="hidden sm:block">
-              <button className="relative inline-flex items-center px-8 py-3 overflow-hidden font-medium text-white bg-zinc-900 border border-zinc-800 rounded-lg group">
-                <span className="absolute w-0 h-full transition-all duration-500 ease-out bg-white left-0 top-0 group-hover:w-full -z-1"></span>
-                <span className="relative flex gap-4 group-hover:text-black transition-colors duration-300 ease-out">
-                  <ScrollText color="gray" height={22} width={22} />
-                  View Resume
-                </span>
-              </button>
-            </div>
-
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               animate={isOpen ? "open" : "closed"}
@@ -102,16 +92,6 @@ export const Header = () => {
           ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
         <div className="h-full flex flex-col items-center justify-center">
-          <div className="absolute top-4 right-16 sm:hidden">
-            <button className="relative inline-flex items-center px-6 py-2 overflow-hidden font-medium text-white bg-zinc-900 border border-zinc-800 rounded-lg group">
-              <span className="absolute w-0 h-full transition-all duration-500 ease-out bg-white left-0 top-0 group-hover:w-full -z-1"></span>
-              <span className="relative flex gap-2 group-hover:text-black transition-colors duration-300 ease-out">
-                <ScrollText color="gray" height={18} width={18} />
-                Resume
-              </span>
-            </button>
-          </div>
-
           <ul className="flex flex-col items-center space-y-6 sm:space-y-8">
             {navigationItems.map((item, index) => (
               <motion.li
