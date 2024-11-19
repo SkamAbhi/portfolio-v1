@@ -229,7 +229,6 @@ const skillsData: SkillCategory[] = [
       { name: "Node.js", icon: <Icons.node /> },
       { name: "Express.js", icon: <Icons.express /> },
       { name: "MongoDB", icon: <Icons.mongodb /> },
-      { name: "REST APIs", icon: <Icons.restApi /> },
     ],
   },
   {
@@ -243,10 +242,6 @@ const skillsData: SkillCategory[] = [
       {
         name: "Problem Solving",
         icon: <Brain className="w-5 h-5 text-yellow-500" />,
-      },
-      {
-        name: "System Design",
-        icon: <Settings className="w-5 h-5 text-purple-500" />,
       },
     ],
   },
