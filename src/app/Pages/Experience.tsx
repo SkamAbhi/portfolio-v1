@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExperienceCard } from "./Components/ExperienceCard";
+import { ExperienceCard } from "../Components/ExperienceCard";
 
 const experienceData = [
   {

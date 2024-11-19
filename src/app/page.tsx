@@ -3,22 +3,16 @@
 import React, { useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import "./globals.css";
-import useMousePosition from "../utils/useMosusePostion";
-import AboutMe from "./AboutMe";
-import Experience from "./Experience";
-import Projects from "./Projects";
-import Skills from "./Skill";
-import Contact from "./Contact";
-
-import Hero from "./Hero";
+import AboutMe from "./Pages/AboutMe";
+import Projects from "./Pages/Projects";
+import Skills from "./Pages/Skill";
+import Contact from "./Pages/Contact";
+import Hero from "./Pages/Hero";
 import Footer from "./Footer";
 import Header from "./Components/Navbar";
+import Experience from "./Pages/Experience";
 
 export default function Home() {
-  const { x, y } = useMousePosition();
-  const [isOpen, setIsOpen] = React.useState(false);
-  const size = 40;
-
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,

@@ -1,6 +1,10 @@
-import React, { useRef } from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { RevealingTextContainer, RevealingTextItem } from "./ui/RevealingText";
+import {
+  RevealingTextContainer,
+  RevealingTextItem,
+} from "../Components/ui/RevealingText";
 
 function AboutMe() {
   const hideAndShowVariant = {
@@ -16,7 +20,7 @@ function AboutMe() {
     },
   };
 
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -51,7 +55,13 @@ function AboutMe() {
     duration: 0.3,
   };
 
-  const config = window.innerWidth < 768 ? mobileConfig : desktopConfig;
+  const [config, setConfig] = useState(mobileConfig);
+
+  useEffect(() => {
+    const currentConfig =
+      window.innerWidth < 768 ? mobileConfig : desktopConfig;
+    setConfig(currentConfig);
+  }, []);
 
   return (
     <section className="bg-black py-10 md:py-20">
